@@ -16,6 +16,17 @@ export const Friends: React.FC<Props> = (props) => {
       width="100%"
     >
       <Box padding="100px 80px">
+        <Text
+          marginTop="24px"
+          fontSize="24px"
+          color="white"
+          fontWeight="bold"
+          display="inline-block"
+          cursor="pointer"
+          _hover={{ color: "#d4d3d3" }}
+        >
+          <Link href="/">{"< "} Back to Top</Link>
+        </Text>
         <Box
           backgroundColor="#E0E0E0"
           padding="20px"
