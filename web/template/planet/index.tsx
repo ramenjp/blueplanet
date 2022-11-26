@@ -5,6 +5,8 @@ import firstPlanet from "../assets/planets/0.png";
 import secondPlanet from "../assets/planets/1.png";
 import thirdPlanet from "../assets/planets/2.png";
 import dynamic from "next/dynamic";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Stage } from "@react-three/drei";
 
 type Props = {
   balance: number;
@@ -21,15 +23,12 @@ export const Planet: React.FC<Props> = (props) => {
       width="100%"
       padding="40px"
     >
-      <Model />
-
       <Text fontSize="30px" color="white" fontWeight="bold">
         SBTs: {props.balance}
       </Text>
       <Text fontSize="24px" color="white" fontWeight="bold">
         Planet Lv: MAX
       </Text>
-
       <Text
         marginTop="24px"
         fontSize="24px"
@@ -42,6 +41,13 @@ export const Planet: React.FC<Props> = (props) => {
       >
         <Link href="/friends">{"< "} Back to Friend List</Link>
       </Text>
+      <Box width="80%" height="80%" margin="0 auto">
+        <Canvas style={{ width: "100%", height: "600px" }}>
+          <OrbitControls />
+          <Model />
+          <Stage />
+        </Canvas>
+      </Box>
       {/* <Box
         width="50%"
         height="50%"
@@ -57,7 +63,6 @@ export const Planet: React.FC<Props> = (props) => {
           <Image src="/planets/2.png" />
         ) : null}
       </Box> */}
-
       <Box style={{ display: "flex", justifyContent: "space-between" }}>
         <Box style={{ display: "flex" }}>
           <Box

@@ -6,8 +6,8 @@ type Props = {};
 
 export const Planet3D: React.FC<Props> = (props) => {
   const planet3Ddata = "";
-  const { scene } = useGLTF("http://localhost:3000/planets/high.glb");
-  return <primitive object={scene} />;
+  const gltf = useGLTF("/planets/high.glb");
+  return <primitive object={gltf.scene} />;
 };
 
 export default Planet3D;
