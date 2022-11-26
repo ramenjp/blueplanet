@@ -4,12 +4,14 @@ import { ProfileCard } from "../../component/Friends/profileCard";
 import firstPlanet from "../assets/planets/0.png";
 import secondPlanet from "../assets/planets/1.png";
 import thirdPlanet from "../assets/planets/2.png";
+import dynamic from "next/dynamic";
 
 type Props = {
   balance: number;
 };
 
 const getBalanceOfSBT = () => {};
+const Model = dynamic(() => import("../../component/Planet3D") as any);
 export const Planet: React.FC<Props> = (props) => {
   return (
     <Box
@@ -19,6 +21,8 @@ export const Planet: React.FC<Props> = (props) => {
       width="100%"
       padding="40px"
     >
+      <Model />
+
       <Text fontSize="30px" color="white" fontWeight="bold">
         SBTs: {props.balance}
       </Text>
@@ -38,7 +42,7 @@ export const Planet: React.FC<Props> = (props) => {
       >
         <Link href="/friends">{"< "} Back to Friend List</Link>
       </Text>
-      <Box
+      {/* <Box
         width="50%"
         height="50%"
         maxWidth="700px"
@@ -52,7 +56,7 @@ export const Planet: React.FC<Props> = (props) => {
         ) : props.balance >= 2 ? (
           <Image src="/planets/2.png" />
         ) : null}
-      </Box>
+      </Box> */}
 
       <Box style={{ display: "flex", justifyContent: "space-between" }}>
         <Box style={{ display: "flex" }}>
